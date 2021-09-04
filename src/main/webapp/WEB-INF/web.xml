@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+<!--宣告 servlet-->
+    <servlet>
+        <servlet-name>genericServlet</servlet-name>
+        <servlet-class>com.example.class1.controller.MyGenericServlet</servlet-class>
+    </servlet>
+<!--servlet 給 client 對應配置-->
+    <servlet-mapping>
+        <servlet-name>genericServlet</servlet-name>
+        <url-pattern>/generic</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>helloservlet</servlet-name>
+        <servlet-class>com.example.class1.controller.HelloHttpServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>helloservlet</servlet-name>
+        <url-pattern>/helloServlet</url-pattern>
+    </servlet-mapping>
+</web-app>
