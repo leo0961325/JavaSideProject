@@ -16,6 +16,7 @@
 
 <% List<Map> list = (List) request.getAttribute("list"); %>
 <% for (Map map : list) { %>
+<%--//因為當初沒有給泛型，所以要toString--%>
     <% if (map.get("r").toString().equals("0")) continue;%>
     <form class="pure-form">
         <fieldset>
