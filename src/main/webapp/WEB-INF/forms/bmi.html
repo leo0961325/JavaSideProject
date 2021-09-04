@@ -1,0 +1,63 @@
+<html>
+<head>
+  <title>BMI</title>
+  <meta charset="UTF-8">
+  <link rel="icon" href="../icons/favicon.ico" type="image/x-icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css">
+</head>
+<body style="padding: 20px">
+
+<form class="pure-form"
+      enctype="application/x-www-form-urlencoded"
+      method="post" action="http://localhost:8080/on-deploy/bmi">
+  <fieldset>
+    <legend>BMI (預設表單編碼)</legend>
+    <input name="cname" type="text" placeholder="姓名" value="王小明"><p />
+    <input name="height" type="text" placeholder="身高" value="170"><p />
+    <input name="weight" type="text" placeholder="體重" value="60"><p />
+    <p />
+    <button type="submit" class="pure-button pure-button-primary">註冊</button>
+  </fieldset>
+</form>
+
+<form class="pure-form"
+      enctype="text/plain"
+      method="post" action="http://localhost:8080/on-deploy/bmi">
+  <fieldset>
+    <legend>BMI (表單編碼:text/plain)</legend>
+    <input name="cname" type="text" placeholder="姓名" value="王小明"><p />
+    <input name="height" type="text" placeholder="身高" value="170"><p />
+    <input name="weight" type="text" placeholder="體重" value="60"><p />
+    <p />
+    <button type="submit" class="pure-button pure-button-primary">註冊</button>
+  </fieldset>
+</form>
+
+<form class="pure-form"
+      enctype="multipart/form-data"
+      method="post" action="http://localhost:8080/on-deploy/bmi">
+  <fieldset>
+    <legend>BMI (表單編碼:multipart/form-data)</legend>
+    <input name="cname" type="text" placeholder="姓名" value="王小明"><p />
+    <input name="height" type="text" placeholder="身高" value="170"><p />
+    <input name="weight" type="text" placeholder="體重" value="60"><p />
+    <p />
+    <button type="submit" class="pure-button pure-button-primary">註冊</button>
+  </fieldset>
+</form>
+
+<form class="pure-form"
+      enctype="multipart/form-data"
+      method="post" action="http://localhost:8080/on-deploy/bmi">
+  <fieldset>
+    <legend>Upload (表單編碼:multipart/form-data)</legend>
+    <input name="cname" type="text" placeholder="圖片名稱" value="我的圖片"><p />
+    <p />
+    <input type="file" name="upload_file" />
+    <p />
+    <button type="submit" class="pure-button pure-button-primary">上傳</button>
+  </fieldset>
+</form>
+</body>
+</html>
