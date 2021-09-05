@@ -9,15 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 
 //@WebServlet(urlPatterns = {"/upload/file","/upload/image"})
 
 @WebServlet("/upload/*") //後置路徑動應， * 代表任意字串(path info)
 @MultipartConfig(
-        fileSizeThreshold = 1024*1024*2,
-        maxFileSize = 1024*1024*10,
-        maxRequestSize = 1024*1024*30
+        fileSizeThreshold = 1024 * 1024 * 2,
+        maxFileSize = 1024 * 1024 * 10,
+        maxRequestSize = 1024 * 1024 * 30
 
 )
 public class UploadServlet extends HttpServlet {
@@ -34,17 +36,17 @@ public class UploadServlet extends HttpServlet {
         String pathInfo = req.getPathInfo();
         resp.getWriter().print("pathInfo" + pathInfo + "<p/>");
 
-        switch (pathInfo){
+        switch (pathInfo) {
             case "/file":
-                uploadFile(req,resp);
+                uploadFile(req, resp);
                 break;
             case "/image":
-                uploadImage(req,resp);
+                uploadImage(req, resp);
                 break;
         }
     }
 
-    private void uploadFile (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+    private void uploadFile(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getParts()
                 .stream()
                 .filter(part -> part.getName().equals("cname"))
@@ -74,7 +76,40 @@ public class UploadServlet extends HttpServlet {
 
     }
 
-    private void uploadImage (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+    private void uploadImage(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getParts()
+                .stream()
+                .filter(part -> part.getName().equals("cname"))
+                .forEach(part -> {
+                    try {
+                        String cname = IOUtils.toString(part.getInputStream(),
+                                StandardCharsets.UTF_8.name());
+                        resp.getWriter().print(part.getName() + "<br/>");
+                        resp.getWriter().print(cname + "<br/>");
+                    } catch (IOException e) {
+
+                    }
+                });
+        req.getParts()
+                .stream()
+                .filter(part -> part.getName().equals("upload_file"))
+                .forEach(part -> {
+                    try {
+                        //InputStream -> byte[] -> base64字串 (html支援圖片模式)
+                        InputStream is = part.getInputStream();
+                        byte[] bytes = IOUtils.toByteArray(is);
+                        String  data = Base64.getEncoder().encodeToString(bytes);
+
+                        resp.getWriter().print(part.getName() + "<br/>");
+                        resp.getWriter().print(data + "<br/>");
+                        String img = "<img src='data:image/png;base64, %s'>";
+                        //裡面放data
+                        img = String.format(img,data);
+                        resp.getWriter().print(img + "<br/>");
+                    } catch (IOException e) {
+
+                    }
+                });
 
     }
 }
