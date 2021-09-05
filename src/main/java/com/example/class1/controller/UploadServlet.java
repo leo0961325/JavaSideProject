@@ -58,6 +58,20 @@ public class UploadServlet extends HttpServlet {
 
                     }
                 });
+        req.getParts()
+                .stream()
+                .filter(part -> part.getName().equals("upload_file"))
+                .forEach(part -> {
+                    try {
+                        String data = IOUtils.toString(part.getInputStream(),
+                                StandardCharsets.UTF_8.name());
+                        resp.getWriter().print(part.getName() + "<br/>");
+                        resp.getWriter().print(data + "<br/>");
+                    } catch (IOException e) {
+
+                    }
+                });
+
     }
 
     private void uploadImage (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{

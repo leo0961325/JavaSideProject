@@ -10,13 +10,15 @@
 <body style="padding: 20px">
 
 
-
+<!--      上傳檔案編碼模式一定是要multipart/form-data-->
 <form class="pure-form"
       enctype="multipart/form-data"
       method="post" action="http://localhost:8080/on-deploy/upload/file">
   <fieldset>
     <legend>Upload 純文字文件(表單編碼:multipart/form-data)</legend>
     <input name="cname" type="text" placeholder="文件名稱" value=""><p />
+    <p />
+    <input type="file" name="upload_file" />
     <p />
     <input type="file" name="upload_file" />
     <p />
