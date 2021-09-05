@@ -1,0 +1,10 @@
+com\example\class1\controller\MyGenericServlet.class
+com\example\class1\HelloServlet.class
+com\example\class1\service\RegisterService.class
+com\example\class1\controller\HelloNewServlet.class
+com\example\class1\controller\CalcAreaServlet.class
+com\example\class1\service\CalcAreaService.class
+com\example\class1\controller\BMIServlet.class
+com\example\class1\controller\HelloHttpServlet.class
+com\example\class1\controller\RegisterServlet.class
+com\example\class1\controller\UploadServlet.class
