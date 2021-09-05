@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
@@ -106,6 +107,20 @@ public class UploadServlet extends HttpServlet {
                         //裡面放data
                         img = String.format(img,data);
                         resp.getWriter().print(img + "<br/>");
+
+                        //存檔
+                        String fileSavingFolder = getServletContext().getRealPath("/upload");
+                        //確認資料夾是否存在:
+                        File folder = new File(fileSavingFolder);
+                        if(!folder.exists()){
+                            folder.mkdir(); //若不存在這建立資料夾
+                        }
+                        //圖片檔名:
+                        String fname = part.getSubmittedFileName();
+                        //存檔路徑
+                        String fileSavingPath = fileSavingFolder + File.separator + fname;
+                        //將檔案寫入到伺服器中
+                        part.write(fileSavingPath);
                     } catch (IOException e) {
 
                     }
