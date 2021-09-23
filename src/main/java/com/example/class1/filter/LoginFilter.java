@@ -1,10 +1,7 @@
 package com.example.class1.filter;
 
 
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpFilter;
 import java.io.IOException;
@@ -37,10 +34,12 @@ public class LoginFilter extends HttpFilter {
                         .findAny()
                         .isPresent();
 
-        if(check){
-            chain.doFilter(req,res);
-        }else {
-            res.getWriter().print("Please login");
+        System.out.println(check); //false
+        if (check) {
+            chain.doFilter(req, res);
+        } else {
+            RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/login.jsp");
+            rd.forward(req, res);
         }
 
 
