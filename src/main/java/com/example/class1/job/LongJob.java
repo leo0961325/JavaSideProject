@@ -1,0 +1,30 @@
+package com.example.class1.job;
+
+import javax.servlet.AsyncContext;
+import java.io.PrintWriter;
+import java.util.Date;
+
+public class LongJob implements Runnable{
+
+    private AsyncContext ctx ;
+
+    public LongJob(AsyncContext ctx) {
+        this.ctx = ctx;
+    }
+
+    @Override
+    public void run() {
+        try {
+            PrintWriter out = ctx.getResponse().getWriter();
+            for(int i = 1 ; i <= 10 ;i++){
+                Thread.sleep(1000);
+                out.println(i + ".執行序工作做完.. " + new Date() + "</p>");
+                out.flush();
+            }
+            ctx.complete(); //做完了
+        }catch (Exception e){
+
+        }
+
+    }
+}
