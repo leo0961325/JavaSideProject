@@ -1,3 +1,5 @@
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -19,6 +21,12 @@
     <li><a href="http://localhost:8080/on-deploy/HelloNewServlet">HelloNewServlet(利用@部屬servlet)</a></li>
     <a href="#" onclick="alert('有空在做')">原始碼</a>
     <li><a href=""></a></li>
+    <%
+        Date now = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+        out.print(sdf.format(now));
+    %>
+
 </ol>
 
 
