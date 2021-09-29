@@ -31,8 +31,10 @@
         calc.setX(10);
         calc.setY(20);
         calc.getResult();
-        out.print(calc.getResult());
     %>
+    <%=calc.getResult()%>
+
+
 <%-- jsp Action    id等同 於物件名稱   class=class--%>
     <jsp:useBean id="calc2" class="com.example.class1.service.Calc"></jsp:useBean>
     <%-- setProperty會自己呼叫 setter   --%>
