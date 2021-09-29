@@ -1,3 +1,6 @@
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="com.example.class1.service.Calc" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -19,6 +22,23 @@
     <li><a href="http://localhost:8080/on-deploy/HelloNewServlet">HelloNewServlet(利用@部屬servlet)</a></li>
     <a href="#" onclick="alert('有空在做')">原始碼</a>
     <li><a href=""></a></li>
+
+
+    <%
+        Calc calc = new Calc();
+        calc.setX(10);
+        calc.setY(20);
+        calc.getResult();
+        out.print(calc.getResult());
+    %>
+<%-- jsp Action    id等同 於物件名稱   class=class--%>
+    <jsp:useBean id="calc2" class="com.example.class1.service.Calc"></jsp:useBean>
+    <%-- setProperty會自己呼叫 setter   --%>
+    <jsp:setProperty name="calc2" property="x" value="20"></jsp:setProperty>
+    <jsp:setProperty name="calc2" property="y" value="30"></jsp:setProperty>
+    <%-- getProperty自己就會去呼叫 getResult()   --%>
+    <jsp:getProperty name="calc2" property="result"/>
+
 </ol>
 
 
