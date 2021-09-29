@@ -1,7 +1,9 @@
 <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="com.example.class1.service.Calc" %>
+<%@ page import="java.util.Random" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@page errorPage="error_page.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,6 +40,18 @@
     <jsp:setProperty name="calc2" property="y" value="30"></jsp:setProperty>
     <%-- getProperty自己就會去呼叫 getResult()   --%>
     <jsp:getProperty name="calc2" property="result"/>
+
+<%--    重導至error page --%>
+    <h1>
+    <%
+        int n = new Random().nextInt(100);
+        if(n % 2 ==0){
+            out.print(n);
+        }else {
+            throw new Exception(n + "不是偶數");
+        }
+    %>
+    </h1>
 
 </ol>
 
