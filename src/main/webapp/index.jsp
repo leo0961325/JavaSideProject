@@ -4,10 +4,13 @@
 <%@ page import="java.util.Random" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@page errorPage="error_page.jsp" %>
+<%--Jstl使用要載入的標籤庫，核心標籤--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
     <title>JSP - Hello World</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css">
 </head>
 <body>
 <h1><%= "Hello World!" %>
@@ -24,38 +27,15 @@
     <li><a href="http://localhost:8080/on-deploy/HelloNewServlet">HelloNewServlet(利用@部屬servlet)</a></li>
     <a href="#" onclick="alert('有空在做')">原始碼</a>
     <li><a href=""></a></li>
-
-
-    <%
-        Calc calc = new Calc();
-        calc.setX(10);
-        calc.setY(20);
-        calc.getResult();
-    %>
-    <%=calc.getResult()%>
-
-
-<%-- jsp Action    id等同 於物件名稱   class=class--%>
-    <jsp:useBean id="calc2" class="com.example.class1.service.Calc"></jsp:useBean>
-    <%-- setProperty會自己呼叫 setter   --%>
-    <jsp:setProperty name="calc2" property="x" value="20"></jsp:setProperty>
-    <jsp:setProperty name="calc2" property="y" value="30"></jsp:setProperty>
-    <%-- getProperty自己就會去呼叫 getResult()   --%>
-    <jsp:getProperty name="calc2" property="result"/>
-
-<%--    重導至error page --%>
-    <h1>
-    <%
-        int n = new Random().nextInt(100);
-        if(n % 2 ==0){
-            out.print(n);
-        }else {
-            throw new Exception(n + "不是偶數");
-        }
-    %>
-    </h1>
-
 </ol>
+
+<form class="pure-form" method="post" action="http://localhost:8080/on-deploy/recruit">
+    <fieldset>
+        <legend>招募</legend>
+        <input type="number" placeholder="請輸入人數:" name="amount"/>
+        <button type="submit" class="pure-button pure-button-primary">Submit</button>
+    </fieldset>
+</form>
 
 
 </body>
