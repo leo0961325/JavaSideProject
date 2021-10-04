@@ -31,7 +31,7 @@ public class RecruitServlet extends HttpServlet {
         Random random = new Random();
         //amount有幾個就產生幾個隨機人數
         for (int i = 0 ; i < amount ; i++){
-            Person person =new Person(faker.name().name(),
+            Person person =new Person(faker.name().firstName(),
                                       random.nextInt(100)%2==0?"男":"女",
                                       random.nextInt(101));
             list.add(person);
