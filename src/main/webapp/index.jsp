@@ -37,6 +37,20 @@
     </fieldset>
 </form>
 
+<form class="pure-form"
+      method="post" action="http://localhost:8080/on-deploy/bmi_session">
+    <fieldset>
+        <legend>BMI(Session版本)</legend>
+        <input name="cname" type="text" placeholder="姓名" value="王小名"><p />
+        <input name="height" type="text" placeholder="身高" value="170"><p />
+        <input name="weight" type="text" placeholder="體重" value="60"><p />
+
+        <button type="submit" class="pure-button pure-button-primary">傳送</button>
+        <button type="button"
+                onclick="location.href='http://localhost:8080/on-deploy/bmi_session'"
+                class="pure-button pure-button-primary">檢視</button>
+    </fieldset>
+</form>
 
 </body>
 </html>
