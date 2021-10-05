@@ -40,7 +40,7 @@
 <form class="pure-form"
       method="post" action="http://localhost:8080/on-deploy/bmi_session">
     <fieldset>
-        <legend>BMI(Session版本)</legend>
+        <legend>BMI(Session版本) 使用人數 : ${applicationScope.count} 人</legend>
         <input name="cname" type="text" placeholder="姓名" value="王小名"><p />
         <input name="height" type="text" placeholder="身高" value="170"><p />
         <input name="weight" type="text" placeholder="體重" value="60"><p />

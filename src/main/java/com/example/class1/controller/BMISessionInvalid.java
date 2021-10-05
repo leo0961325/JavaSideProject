@@ -19,9 +19,14 @@ public class BMISessionInvalid extends HelloHttpServlet {
         //Get檢視就不建立新的SessionID，就使用剛剛post進來的
         HttpSession session = req.getSession(false);
         PrintWriter out = resp.getWriter();
-        out.println("Session inValid , Session id : "+ session.getId());
-        //使session失效，像是logout
-        session.invalidate();
+        if(session != null){
+            out.println("Session inValid , Session id : "+ session.getId());
+            //使session失效，像是logout
+            session.invalidate();
+        }else {
+            //Session已經失效了
+            out.println("Session already Invalid");
+        }
 
     }
 }
