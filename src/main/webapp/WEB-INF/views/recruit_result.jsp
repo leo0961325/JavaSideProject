@@ -25,7 +25,7 @@
             </tr>
             </thead>
             <tbody>
-
+            <c:set var="amount" value="0"></c:set>
             <c:forEach var="person" items="${list}" varStatus="item" >
             <tr>
                 <%-- varStatus 每一個都是 1個item--%>
@@ -37,6 +37,8 @@
                 <td>
                     <c:if test="${person.score >= 60}">
                         <c:out value="Pass"></c:out>
+<%--                        每一次pass amount都+1--%>
+                        <c:set var="amount" value="${amount+1}"></c:set>
                     </c:if>
                 </td>
             </tr>
@@ -45,6 +47,7 @@
             </tbody>
         </table>
         <p/>
+        錄取人數:${amount}
         <button type="button" class="pure-button pure-button-primary" onclick="goBack()">回上一頁</button>
     </fieldset>
 </form>
