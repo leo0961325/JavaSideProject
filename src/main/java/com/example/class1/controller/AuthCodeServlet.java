@@ -1,6 +1,8 @@
 package com.example.class1.controller;
 
 
+import com.example.class1.controller.utils.Util;
+
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,7 +20,7 @@ public class AuthCodeServlet extends HelloHttpServlet{
         String authCode = String.format("%04d", new Random().nextInt(10000));
         HttpSession session = req.getSession();
         session.setAttribute("authCode", authCode);
-        ImageIO.write(com.example.class1.controller.Util.getAuthImg(authCode), "JPEG", resp.getOutputStream());
+        ImageIO.write(Util.getAuthImg(authCode), "JPEG", resp.getOutputStream());
     }
 
 }

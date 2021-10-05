@@ -1,5 +1,5 @@
+package com.example.class1.controller.utils;
 
-package com.example.class1.controller;
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Font;
