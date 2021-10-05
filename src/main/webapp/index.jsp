@@ -49,6 +49,9 @@
         <button type="button"
                 onclick="location.href='http://localhost:8080/on-deploy/bmi_session'"
                 class="pure-button pure-button-primary">檢視</button>
+        <button type="button"
+                onclick="location.href='http://localhost:8080/on-deploy/bmi_session_invalid'"
+                class="pure-button pure-button-primary">刪除Session</button>
     </fieldset>
 </form>
 
