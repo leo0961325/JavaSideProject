@@ -45,6 +45,7 @@
         <input name="height" type="text" placeholder="身高" value="170"><p />
         <input name="weight" type="text" placeholder="體重" value="60"><p />
         <input name="code" type="text" placeholder="請輸入授權碼">
+<%--        驗證碼的圖--%>
         <img src="http://localhost:8080/on-deploy/authcode">
         <p/>
 

@@ -29,6 +29,8 @@
     <li><a href=""></a></li>
 </ol>
 
+
+
 <form class="pure-form" method="post" action="http://localhost:8080/on-deploy/recruit">
     <fieldset>
         <legend>招募</legend>
@@ -36,6 +38,8 @@
         <button type="submit" class="pure-button pure-button-primary">Submit</button>
     </fieldset>
 </form>
+
+
 
 <form class="pure-form"
       method="post" action="http://localhost:8080/on-deploy/bmi_session">
@@ -45,6 +49,7 @@
         <input name="height" type="text" placeholder="身高" value="170"><p />
         <input name="weight" type="text" placeholder="體重" value="60"><p />
         <input name="code" type="text" placeholder="請輸入授權碼">
+<%--        驗證碼的圖--%>
         <img src="http://localhost:8080/on-deploy/authcode">
         <p/>
 
@@ -57,6 +62,8 @@
                 class="pure-button pure-button-primary">刪除Session</button>
     </fieldset>
 </form>
+
+
 
 </body>
 </html>
