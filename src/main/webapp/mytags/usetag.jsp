@@ -43,5 +43,15 @@
         </myself:welcome></h1>
 
     <h1><myself:BMITag height="190" weight="60" result="true"></myself:BMITag> </h1>
+    
+    <h1>
+        <myself:exchange symbol="USDTWD=x"></myself:exchange>
+    </h1>
+
+    <h1>
+        <myself:exchange symbol="TWDUSD=x"></myself:exchange>
+    </h1>
+    
+    
     </body>
     </html>
