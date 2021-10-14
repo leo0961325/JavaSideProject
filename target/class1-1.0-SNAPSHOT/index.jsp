@@ -6,6 +6,7 @@
 <%@page errorPage="error_page.jsp" %>
 <%--Jstl使用要載入的標籤庫，核心標籤--%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="my" uri="http://my.scwcd" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,6 +30,8 @@
     <li><a href=""></a></li>
 </ol>
 
+
+
 <form class="pure-form" method="post" action="http://localhost:8080/on-deploy/recruit">
     <fieldset>
         <legend>招募</legend>
@@ -36,6 +39,8 @@
         <button type="submit" class="pure-button pure-button-primary">Submit</button>
     </fieldset>
 </form>
+
+
 
 <form class="pure-form"
       method="post" action="http://localhost:8080/on-deploy/bmi_session">
