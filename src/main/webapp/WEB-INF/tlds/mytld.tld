@@ -52,10 +52,46 @@
     <tag>
         <name>exchange</name>
         <tag-class>com.example.class1.tag.ExchangeTag</tag-class>
-        <body-content>JSP</body-content>
+        <body-content>empty</body-content>
         <description>exchenge rate</description>
         <attribute>
             <name>symbol</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    <!--Loop Tag-->
+    <tag>
+        <name>loop</name>
+        <tag-class>com.example.class1.tag.LoopTag</tag-class>
+        <body-content>JSP</body-content>
+        <description>loop xxx</description>
+        <attribute>
+            <name>count</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    <!--lotto loop Tag-->
+    <tag>
+        <name>loopLotto</name>
+        <tag-class>com.example.class1.tag.LottoTag</tag-class>
+        <body-content>JSP</body-content>
+        <description>loop xxx</description>
+        <attribute>
+            <name>count</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+<!--    Search Tag-->
+    <tag>
+        <name>search</name>
+        <tag-class>com.example.class1.tag.SearchTag</tag-class>
+        <body-content>JSP</body-content>
+        <description>search xxx</description>
+        <attribute>
+            <name>key</name>
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>

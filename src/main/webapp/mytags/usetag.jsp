@@ -1,4 +1,5 @@
 <%@ page import="java.util.Date" %>
+<%@ page import="java.util.Random" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="my" uri="http://my.scwcd" %>
 <%@taglib prefix="myself" uri="http://mytldd.com" %>
@@ -51,7 +52,24 @@
     <h1>
         <myself:exchange symbol="TWDUSD=x"></myself:exchange>
     </h1>
-    
+
+    <h1>
+        <myself:loop count="3">
+            JAVA1
+        </myself:loop>
+    </h1>
+
+    <h1>
+        <myself:loopLotto count="5">
+            <%=  new Random().nextInt(100)+1 %>
+        </myself:loopLotto>
+    </h1>
+
+    <h1>
+        <myself:search key="s">
+            she sell sea shell on the sea shore
+        </myself:search>
+    </h1>
     
     </body>
     </html>
